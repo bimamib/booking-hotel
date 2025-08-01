@@ -20,7 +20,18 @@ const Navlink = () => {
         className={clsx("w-full md:block md:w-auto", {
           hidden: !open,
         })}
-      ></div>
+      >
+        <ul className="flex flex-col font-semibold text-sm uppercase p-4 mt-4 rounded-sm bg-gray-50 md:flex-row md:items-center md:space-x-10 md:p-0 md:mt-0 md:border-0 md:bg-white">
+          <li>
+            <Link
+              href="/"
+              className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+            >
+              Home
+            </Link>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };
