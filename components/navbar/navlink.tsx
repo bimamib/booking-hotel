@@ -30,6 +30,14 @@ const Navlink = () => {
               Home
             </Link>
           </li>
+          <li>
+            <Link
+              href="/about"
+              className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+            >
+              About
+            </Link>
+          </li>
         </ul>
       </div>
     </>
