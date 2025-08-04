@@ -46,6 +46,14 @@ const Navlink = () => {
               Rooms
             </Link>
           </li>
+          <li>
+            <Link
+              href="/contact"
+              className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+            >
+              Contact
+            </Link>
+          </li>
         </ul>
       </div>
     </>
