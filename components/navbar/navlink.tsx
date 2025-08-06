@@ -62,6 +62,14 @@ const Navlink = () => {
               My Reservation
             </Link>
           </li>
+          <li>
+            <Link
+              href="/adnmin/dashboard"
+              className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+            >
+              Dashboard
+            </Link>
+          </li>
         </ul>
       </div>
     </>
