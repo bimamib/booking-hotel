@@ -70,6 +70,14 @@ const Navlink = () => {
               Dashboard
             </Link>
           </li>
+          <li>
+            <Link
+              href="/admin/manage-room"
+              className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+            >
+              Manage Room
+            </Link>
+          </li>
         </ul>
       </div>
     </>
