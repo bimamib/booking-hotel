@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Navlink from "@/components/navbar/navlink";
 
 const Navbar = () => {
   return (
@@ -14,6 +15,7 @@ const Navbar = () => {
             priority
           />
         </Link>
+        <Navlink />
       </div>
     </div>
   );
