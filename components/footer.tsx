@@ -60,11 +60,25 @@ const Footer = () => {
             <p className="text-gray-400">
               Lorem ipsum dolor sit amet, consectetur adipisicing.
             </p>
+            <form action="" className="mt-5">
+              <div className="mb-5">
+                <input
+                  type="text"
+                  name="email"
+                  id=""
+                  className="w-full p-3 rounded-lg bg-white"
+                  placeholder="johndoe@gmail.com"
+                />
+              </div>
+              <button className="bg-orange-400 p-3 font-bold text-white w-full text-center rounded-lg hover:bg-orange-500">
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
       </div>
       <div className="max-w-screen-xl mx-auto px-4 border-t border-gray-500 py-8 text-center text-base text-gray-500">
-        &copy; Copyright {new Date().getFullYear()} Bimss | All Right Reserved
+        &copy; Copyright {new Date().getFullYear()} | Bimss | All Right Reserved
       </div>
     </footer>
   );
