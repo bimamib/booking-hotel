@@ -1,4 +1,10 @@
-import LoginButton from "@/components/login-button";
+import { Metadata } from "next";
+import { LoginGoogleButton } from "@/components/login-button";
+
+export const metadata: Metadata = {
+  title: "Sign In",
+  description: "Sign in to your account",
+};
 
 const SignInPage = () => {
   return (
@@ -9,7 +15,7 @@ const SignInPage = () => {
           Sign In to Your Account
         </p>
         <div className="py-4 text-center">
-          <LoginButton />
+          <LoginGoogleButton />
         </div>
       </div>
     </div>
