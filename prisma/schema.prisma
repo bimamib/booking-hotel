@@ -23,16 +23,26 @@ model Room {
   price       Int
   capacity    Int    @default(1)
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  RoomAmenities RoomAmenities[]
 }
 
 model Amenities {
   id   String @id @default(cuid())
   name String
 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime        @default(now())
+  updatedAt     DateTime        @updatedAt
+  RoomAmenities RoomAmenities[]
+}
+
+model RoomAmenities {
+  id          String    @id @default(cuid())
+  roomId      String
+  Room        Room      @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  amenitiesId String
+  Amenities   Amenities @relation(fields: [amenitiesId], references: [id], onDelete: Cascade)
 }
 
 model User {
