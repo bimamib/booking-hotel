@@ -65,24 +65,38 @@ const Navlink = () => {
                   My Reservation
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/admin/dashboard"
-                  className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
-                >
-                  Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/admin/room"
-                  className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
-                >
-                  Manage Room
-                </Link>
-              </li>
+              {session.user.role === "admin" && (
+                <>
+                  <li>
+                    <Link
+                      href="/admin/dashboard"
+                      className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+                    >
+                      Dashboard
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/admin/room"
+                      className="block py-2 px-3 text-gray-800 hover:bg-gray-100 rounded-sm md:hover:bg-transparent md:p-0"
+                    >
+                      Manage Room
+                    </Link>
+                  </li>
+                </>
+              )}
             </>
           )}
+          {/* {session ? (
+          <li className="pt-2 md:pt-0">
+            <button
+            onClick={() => signOut()}
+              className="md:hidden py-2.5 px-4 bg-red-400 text-white hover:bg-red-600 rounded-md cursor-pointer"
+            >
+              Sign Out
+            </button>
+          </li>
+          ):(
           <li className="pt-2 md:pt-0">
             <Link
               href="/signin"
@@ -91,6 +105,7 @@ const Navlink = () => {
               Sign In
             </Link>
           </li>
+          )} */}
         </ul>
       </div>
     </>
