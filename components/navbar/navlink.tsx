@@ -87,7 +87,7 @@ const Navlink = () => {
               )}
             </>
           )}
-          {/* {session ? (
+          {session ? (
           <li className="pt-2 md:pt-0">
             <button
             onClick={() => signOut()}
@@ -105,7 +105,7 @@ const Navlink = () => {
               Sign In
             </Link>
           </li>
-          )} */}
+          )}
         </ul>
       </div>
     </>
