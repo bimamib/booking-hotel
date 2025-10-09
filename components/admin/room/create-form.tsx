@@ -57,6 +57,18 @@ const CreateForm = () => {
             </div>
             <input type="file" id="input-file" className="hidden" />
           </label>
+          {/* Input untuk harga */}
+          <div className="mb-4">
+            <input
+              type="text"
+              name="price"
+              className="py-2 px-4 rounded-lg border border-gray-400 w-full"
+              placeholder="Price..."
+            />
+            <div aria-live="polite" aria-atomic="true">
+              <span className="text-sm text-red-500 mt-2">message</span>
+            </div>
+          </div>
         </div>
       </div>
     </form>
