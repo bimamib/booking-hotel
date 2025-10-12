@@ -57,6 +57,18 @@ const CreateForm = () => {
             </div>
             <input type="file" id="input-file" className="hidden" />
           </label>
+          {/* Input untuk kapasitas */}
+          <div className="mb-4">
+            <input
+              type="text"
+              name="capacity"
+              className="py-2 px-4 rounded-lg border border-gray-400 w-full"
+              placeholder="Capacity..."
+            />
+            <div aria-live="polite" aria-atomic="true">
+              <span className="text-sm text-red-500 mt-2">message</span>
+            </div>
+          </div>
           {/* Input untuk harga */}
           <div className="mb-4">
             <input
@@ -69,6 +81,12 @@ const CreateForm = () => {
               <span className="text-sm text-red-500 mt-2">message</span>
             </div>
           </div>
+          <button
+            type="submit"
+            className="bg-orange-400 text-white w-full hover:bg-orange-500 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer"
+          >
+            Save
+          </button>
         </div>
       </div>
     </form>
