@@ -4,7 +4,7 @@ const CreateForm = () => {
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
-        <div className="col-span-8 bg-white p-4">
+        <div className="col-span-8 bg-white p-4 shadow-sm rounded-xl">
           <div className="mb-4">
             <input
               type="text"
@@ -41,7 +41,7 @@ const CreateForm = () => {
             </div>
           </div>
         </div>
-        <div className="col-span-4 bg-white p-4">
+        <div className="col-span-4 bg-white p-4 rounded-xl shadow-sm">
           <label
             htmlFor="input-file"
             className="flex flex-col mb-4 items-center justify-center aspect-video border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 relative"
@@ -83,7 +83,7 @@ const CreateForm = () => {
           </div>
           <button
             type="submit"
-            className="bg-orange-400 text-white w-full hover:bg-orange-500 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer"
+            className="bg-orange-400 text-white w-full hover:bg-orange-500 py-2.5 px-6 md:px-10 text-lg font-semibold cursor-pointer rounded-lg"
           >
             Save
           </button>
