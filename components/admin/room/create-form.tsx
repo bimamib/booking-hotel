@@ -1,6 +1,36 @@
+"use client";
+import { useRef, useState } from "react";
+import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline } from "react-icons/io5";
+import Image from "next/image";
 
 const CreateForm = () => {
+  const inputFileRef = useRef<HTMLInputElement>(null);
+  const [image, setImage] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleUpload = async () => {
+    if (!inputFileRef.current?.files) return null;
+    const file = inputFileRef.current.files[0];
+    const formData = new FormData();
+    formData.set("file", file);
+
+    try {
+      const response = await fetch("/api/upload", {
+        method: "PUT",
+        body: formData,
+      });
+      const data = await response.json();
+      if (response.status !== 200) {
+        setMessage(data.message);
+      }
+      const img = data as PutBlobResult;
+      setImage(img.url);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <form action="">
       <div className="grid md:grid-cols-12 gap-5">
@@ -50,12 +80,32 @@ const CreateForm = () => {
               <div className="flex flex-col items-center justify-center">
                 <IoCloudUploadOutline className="size-8" />
                 <p className="mb-1 text-sm font-bold">Select Image</p>
-                <p className="text-xs">
-                  SVG, PNG, JPG, GIF, or Others (max: 4MB)
-                </p>
+                {message ? (
+                  <p className="text-xs text-red-500">{message}</p>
+                ) : (
+                  <p className="text-xs">
+                    SVG, PNG, JPG, GIF, or Others (max: 4MB)
+                  </p>
+                )}
               </div>
             </div>
-            <input type="file" id="input-file" className="hidden" />
+            {!image ? (
+              <input
+                type="file"
+                ref={inputFileRef}
+                onChange={handleUpload}
+                id="input-file"
+                className="hidden"
+              />
+            ) : (
+              <Image
+                src={image}
+                alt="Image"
+                width={640}
+                height={360}
+                className="rounded-xl absolute aspect-video object-cover"
+              />
+            )}
           </label>
           {/* Input untuk kapasitas */}
           <div className="mb-4">
