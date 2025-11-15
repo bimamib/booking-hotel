@@ -47,7 +47,7 @@ export const saveRoom = async (
   } catch (error) {
     console.log(error);
   }
-  redirect("/admin/rooms");
+  redirect("/admin/room");
 };
 
 export const ContactMessage = async (
