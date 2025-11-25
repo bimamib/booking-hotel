@@ -1,5 +1,6 @@
 import { getRooms } from "@/lib/data";
 import Image from "next/image";
+import { formatDate, formatCurrency } from "@/lib/utils";
 
 const RoomTable = async () => {
   const rooms = await getRooms();
@@ -29,7 +30,7 @@ const RoomTable = async () => {
         </thead>
         <tbody className="divide-y divide-gray-200">
           {rooms.map((room) => (
-            <tr className="hover:bg-gray-100">
+            <tr className="hover:bg-gray-100" key={room.id}>
               <td className="px-6 py-4">
                 <div className="h-20 w-32 relative">
                   <Image
@@ -42,8 +43,10 @@ const RoomTable = async () => {
                 </div>
               </td>
               <td className="px-6 py-4">{room.name}</td>
-              <td className="px-6 py-4">{room.price}</td>
-              <td className="px-6 py-4">{room.createdAt.toString()}</td>
+              <td className="px-6 py-4">{formatCurrency(room.price)}</td>
+              <td className="px-6 py-4">
+                {formatDate(room.createdAt.toString())}
+              </td>
               <td className="px-6 py-4 text-right"></td>
             </tr>
           ))}
