@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState, useTransition } from "react";
 import { useActionState } from "react";
-import { saveRoom } from "@/lib/actions";
+import { updateRoom } from "@/lib/actions";
 import { type PutBlobResult } from "@vercel/blob";
 import { IoCloudUploadOutline, IoTrashOutline } from "react-icons/io5";
 import Image from "next/image";
@@ -60,9 +60,11 @@ const EditForm = ({
   };
 
   const [state, formAction, isPending] = useActionState(
-    saveRoom.bind(null, image),
+    updateRoom.bind(null, image, room.id),
     null
   );
+
+  const checkedAmenities = room.RoomAmenities.map((item) => item.amenitiesId);
 
   return (
     <form action={formAction}>
@@ -103,6 +105,7 @@ const EditForm = ({
                   type="checkbox"
                   name="amenities"
                   defaultValue={item.id}
+                  defaultChecked={checkedAmenities.includes(item.id)}
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-lg"
                 />
                 <label className="ms-2 text-sm font-medium text-gray-900 capitalize">
