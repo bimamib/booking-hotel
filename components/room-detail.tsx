@@ -22,11 +22,11 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
         <h1 className="text-5xl font-semibold text-gray-900 mb-8">
           {room.name}
         </h1>
-        <p>{room.description}</p>
+        <p className="text-justify">{room.description}</p>
         <h5 className="text-lg font-bold py-1 mt-1">Amenities:</h5>
         <div className="grid md:grid-cols-3">
           {room.RoomAmenities.map((item) => (
-            <div className="flex gap-1 py-1">
+            <div className="flex gap-1 py-1" key={item.id}>
               <IoCheckmark className="size-5" />
               <span>{item.Amenities.name}</span>
             </div>
@@ -45,8 +45,8 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
             <div className="flex items-center">
               <span className="text-2xl font-semibold text-gray-600">
                 {formatCurrency(room.price)}
+                <span className="text-gray-400 text-sm"> / Night</span>
               </span>
-              <span className="text-gray-400 text-sm">/ Night</span>
             </div>
           </div>
           {/* Reservation Form */}
