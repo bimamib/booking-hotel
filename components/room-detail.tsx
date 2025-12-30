@@ -3,6 +3,7 @@ import { getRoomDetailById } from "@/lib/data";
 import { notFound } from "next/navigation";
 import { IoCheckmark, IoPeopleOutline } from "react-icons/io5";
 import { formatCurrency } from "@/lib/utils";
+import ReserveForm from "@/components/reserve-form";
 
 const RoomDetail = async ({ roomId }: { roomId: string }) => {
   const room = await getRoomDetailById(roomId);
@@ -17,7 +18,7 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
           width={770}
           height={430}
           priority
-          className="w-full rounded-lg mb-8"
+          className="w-full rounded-xl mb-8"
         />
         <h1 className="text-5xl font-semibold text-gray-900 mb-8">
           {room.name}
@@ -34,7 +35,7 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
         </div>
       </div>
       <div className="md:col-span-4">
-        <div className="border-2 border-gray-300 border-dashed px-3 py-5 bg-slate-50 rounded-lg">
+        <div className="border-2 border-gray-300 border-dashed px-3 py-5 bg-slate-50 rounded-xl">
           <div className="flex items-center justify-between mb-8">
             <div className="flex items-center space-x-2">
               <IoPeopleOutline className="size-4" />
@@ -50,6 +51,7 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
             </div>
           </div>
           {/* Reservation Form */}
+          <ReserveForm />
         </div>
       </div>
     </div>
