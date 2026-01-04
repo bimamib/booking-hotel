@@ -51,7 +51,7 @@ const RoomDetail = async ({ roomId }: { roomId: string }) => {
             </div>
           </div>
           {/* Reservation Form */}
-          <ReserveForm />
+          <ReserveForm room={room} />
         </div>
       </div>
     </div>
