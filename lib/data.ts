@@ -26,6 +26,17 @@ export const getRoomById = async (roomId: string) => {
   }
 };
 
+export const getRooms = async () => {
+  try {
+    const result = await prisma.room.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getRoomDetailById = async (roomId: string) => {
   try {
     const result = await prisma.room.findUnique({
@@ -48,10 +59,27 @@ export const getRoomDetailById = async (roomId: string) => {
   }
 };
 
-export const getRooms = async () => {
+export const getReservationById = async (id: string) => {
   try {
-    const result = await prisma.room.findMany({
-      orderBy: { createdAt: "desc" },
+    const result = await prisma.reservation.findUnique({
+      where: { id },
+      include: {
+        Room: {
+          select: {
+            name: true,
+            image: true,
+            price: true,
+          },
+        },
+        User: {
+          select: {
+            name: true,
+            email: true,
+            phone: true,
+          },
+        },
+        Payment: true,
+      },
     });
     return result;
   } catch (error) {
