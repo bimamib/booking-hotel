@@ -65,7 +65,7 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                 {reservation.User.phone}
               </td>
             </tr>
-            {/* <tr>
+            <tr>
               <td className="py-2">Arrival</td>
               <td className="py-2 text-right truncate">
                 {formatDate(reservation.startDate.toISOString())}
@@ -77,7 +77,7 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                 {formatDate(reservation.endDate.toISOString())}
               </td>
             </tr>
-            <tr>
+            {/* <tr>
               <td className="py-2">Duration</td>
               <td className="py-2 text-right truncate">
                 <span>
