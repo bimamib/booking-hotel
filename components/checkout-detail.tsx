@@ -77,7 +77,7 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                 {formatDate(reservation.endDate.toISOString())}
               </td>
             </tr>
-            {/* <tr>
+            <tr>
               <td className="py-2">Duration</td>
               <td className="py-2 text-right truncate">
                 <span>
@@ -90,7 +90,7 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
               <td className="py-2 text-right truncate">
                 <span>{formatCurrency(reservation.Payment.amount)}</span>
               </td>
-            </tr> */}
+            </tr>
           </tbody>
         </table>
       </div>
