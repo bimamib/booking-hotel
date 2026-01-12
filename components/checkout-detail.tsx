@@ -91,6 +91,12 @@ const CheckoutDetail = async ({ reservationId }: { reservationId: string }) => {
                 <span>{formatCurrency(reservation.Payment.amount)}</span>
               </td>
             </tr>
+            <tr>
+              <td className="py-2">Status</td>
+              <td className="py-2 text-right truncate">
+                {reservation.Payment.status}
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>
