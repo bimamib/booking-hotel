@@ -1,5 +1,5 @@
 import { getReservationById } from "@/lib/data";
-import { formatCurrency, formateDate } from "@/lib/utils";
+import { formatCurrency, formatDate } from "@/lib/utils";
 import { differenceInCalendarDays } from "date-fns";
 import { notFound } from "next/navigation";
 
@@ -23,7 +23,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                #reservationID
+                #{reservation.id}
               </div>
             </div>
           </li>
@@ -35,7 +35,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                bookdate
+                {formatDate(reservation.createdAt.toISOString())}
               </div>
             </div>
           </li>
