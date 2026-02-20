@@ -47,7 +47,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                name
+                {reservation.User.name}
               </div>
             </div>
           </li>
@@ -59,7 +59,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                email
+                {reservation.User.email}
               </div>
             </div>
           </li>
@@ -73,7 +73,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                phone
+                {reservation.User.phone}
               </div>
             </div>
           </li>
@@ -84,8 +84,10 @@ const ReservationDetail = async ({
                   Payment Method
                 </p>
               </div>
-              <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                payment method
+              <div className="inline-flex items-center text-base font-semibold text-gray-900 capitalize">
+                {reservation.Payment?.method
+                  ? reservation.Payment.method.replace("_", " ")
+                  : null}
               </div>
             </div>
           </li>
@@ -97,7 +99,7 @@ const ReservationDetail = async ({
                 </p>
               </div>
               <div className="inline-flex items-center text-base font-semibold text-gray-900">
-                payment status
+                {reservation.Payment?.status}
               </div>
             </div>
           </li>
@@ -120,15 +122,28 @@ const ReservationDetail = async ({
               <td className="px-6 py-4">
                 <div className="flex flex-col">
                   <span className="font-medium text-gray-900 whitespace-nowrap">
-                    Room Name
+                    {reservation.Room.name}
                   </span>
-                  <span>Price: 100000</span>
+                  <span>Price: {formatCurrency(reservation.price)}</span>
                 </div>
               </td>
-              <td className="px-6 py-4">Arrival</td>
-              <td className="px-6 py-4">Departure</td>
-              <td className="px-6 py-4">1 Night</td>
-              <td className="px-6 py-4 text-right">99999</td>
+              <td className="px-6 py-4">
+                {formatDate(reservation.startDate.toISOString())}
+              </td>
+              <td className="px-6 py-4">
+                {formatDate(reservation.endDate.toISOString())}
+              </td>
+              <td className="px-6 py-4">
+                {differenceInCalendarDays(
+                  reservation.endDate,
+                  reservation.startDate,
+                )}{" "}
+                Night
+              </td>
+              <td className="px-6 py-4 text-right">
+                {reservation.Payment &&
+                  formatCurrency(reservation.Payment.amount)}
+              </td>
             </tr>
           </tbody>
           <tfoot>
@@ -137,7 +152,8 @@ const ReservationDetail = async ({
                 Total
               </td>
               <td className="px-6 py-3 font-bold text-right" colSpan={3}>
-                9999
+                {reservation.Payment &&
+                  formatCurrency(reservation.Payment.amount)}
               </td>
             </tr>
           </tfoot>
