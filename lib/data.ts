@@ -155,3 +155,18 @@ export const getRevenueAndReserve = async () => {
     console.log(error);
   }
 };
+
+export const getTotalCustomers = async () => {
+  try {
+    const result = await prisma.reservation.findMany({
+      distinct: ["userId"],
+      where: {
+        Payment: { status: { not: "failure" } },
+      },
+      select: { userId: true },
+    });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
